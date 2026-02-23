@@ -6,10 +6,24 @@ const TOKEN_KEY = "taskflow_token";
 const USER_KEY = "taskflow_user";
 
 export const AuthProvider = ({ children }) => {
-  const [token, setToken] = useState(() => localStorage.getItem(TOKEN_KEY));
+  const [token, setToken] = useState(() => {
+    const rawToken = localStorage.getItem(TOKEN_KEY);
+    if (!rawToken || rawToken === "null" || rawToken === "undefined") {
+      return null;
+    }
+    return rawToken;
+  });
   const [user, setUser] = useState(() => {
     const raw = localStorage.getItem(USER_KEY);
-    return raw ? JSON.parse(raw) : null;
+    if (!raw) {
+      return null;
+    }
+    try {
+      return JSON.parse(raw);
+    } catch {
+      localStorage.removeItem(USER_KEY);
+      return null;
+    }
   });
 
   const saveAuth = (nextToken, nextUser) => {
