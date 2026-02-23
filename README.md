@@ -26,6 +26,7 @@
    JWT_SECRET=your_strong_secret
    JWT_EXPIRES_IN=1d
    RESET_TOKEN_EXPIRES_MINUTES=15
+   SHOW_RESET_TOKEN_FOR_DEMO=true
    CLIENT_ORIGIN=http://localhost:5173
    NODE_ENV=development
    ```
@@ -56,7 +57,7 @@
 ## Assumptions Or Limitations
 - PostgreSQL must be running and accessible using `DATABASE_URL`.
 - SMTP/email sending is not implemented for forgot-password emails.
-- In non-production mode, forgot-password may return a reset token for testing.
+- Reset token is returned only when `SHOW_RESET_TOKEN_FOR_DEMO=true`.
 - Single user role flow.
 
 ## Bonus Features 
@@ -65,3 +66,8 @@
 - Reset password with hashed token + expiry + one-time use
 - Task filter by status (`Pending`, `Completed`)
 - Delete task endpoint
+
+## Live Deployed URL (Optional)
+- Frontend: `https://task-management-system-2rc4.onrender.com`
+- Backend: `https://task-management-system-xhxo.onrender.com`
+- Health Check: `https://task-management-system-xhxo.onrender.com/api/health`

@@ -13,6 +13,7 @@ const generateToken = (user) => {
 };
 
 const RESET_TOKEN_EXPIRES_MINUTES = Number(process.env.RESET_TOKEN_EXPIRES_MINUTES || 15);
+const SHOW_RESET_TOKEN_FOR_DEMO = process.env.SHOW_RESET_TOKEN_FOR_DEMO === "true";
 
 export const register = async (req, res) => {
   const { name, email, password } = req.body;
@@ -117,7 +118,7 @@ export const forgotPassword = async (req, res) => {
     );
 
     const response = { message: "Reset token generated successfully." };
-    if (process.env.NODE_ENV !== "production") {
+    if (SHOW_RESET_TOKEN_FOR_DEMO) {
       response.resetToken = resetToken;
       response.expiresInMinutes = RESET_TOKEN_EXPIRES_MINUTES;
     }
