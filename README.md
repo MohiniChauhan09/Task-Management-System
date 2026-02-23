@@ -59,6 +59,7 @@
 - SMTP/email sending is not implemented for forgot-password emails.
 - Reset token is returned only when `SHOW_RESET_TOKEN_FOR_DEMO=true`.
 - Single user role flow.
+- On static hosting, direct refresh on some client-side routes can fail; use root URL or hash route (example: `/#/auth`).
 
 ## Bonus Features 
 - JWT-based authentication (register/login)
@@ -69,5 +70,6 @@
 
 ## Live Deployed URL (Optional)
 - Frontend: `https://task-management-system-2rc4.onrender.com`
+- Frontend Auth (hash route): `https://task-management-system-2rc4.onrender.com/#/auth`
 - Backend: `https://task-management-system-xhxo.onrender.com`
 - Health Check: `https://task-management-system-xhxo.onrender.com/api/health`
