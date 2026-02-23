@@ -9,7 +9,7 @@
 ## Steps To Run The Project Locally
 1. Clone the repository:
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/MohiniChauhan09/Task-Management-System.git
    cd Task_Management_System
    ```
 
@@ -59,7 +59,7 @@
 - In non-production mode, forgot-password may return a reset token for testing.
 - Single user role flow.
 
-## Bonus Features (If Any)
+## Bonus Features 
 - JWT-based authentication (register/login)
 - Forgot password endpoint
 - Reset password with hashed token + expiry + one-time use
